@@ -1,1 +1,1 @@
-# rwb-mongodb-course-2025
+# RWB mongodb course 2025
