@@ -180,11 +180,11 @@ db.createCollection(
                 properties: {
                     name: {
                         bsonType: "string",
-                        description: "required non empty string"
+                        description: "required and must be a string"
                     },
                     species: {
                         bsonType: "string",
-                        description: "required non empty string"
+                        description: "required and must be a string"
                     },
                     gender: {
                         bsonType: "string",
@@ -225,11 +225,11 @@ db.runCommand({
             properties: {
                 name: {
                     bsonType: "string",
-                    description: "required non empty string"
+                    description: "required and must be a string"
                 },
                 species: {
                     bsonType: "string",
-                    description: "required non empty string"
+                    description: "required and must be a string"
                 },
                 gender: {
                     bsonType: "string",
