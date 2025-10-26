@@ -1,0 +1,7 @@
+### /high
+POST 127.0.0.1:8888/high HTTP/1.1
+content-type: application/json
+
+{
+  "high": 1.123456
+}

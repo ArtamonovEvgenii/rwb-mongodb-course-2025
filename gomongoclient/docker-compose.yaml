@@ -1,0 +1,19 @@
+services:
+  mongodb-single:
+    image: percona/percona-server-mongodb:7.0
+    container_name: mongodb-single
+    ports:
+      - "28017:27017"
+    volumes:
+      - ./docker/mongodb-single:/data/db
+    command: ["mongod", "--port", "27017", "--dbpath", "/data/db", "--bind_ip_all"]
+#    command: ["mongod", "--replSet", "rs", "--keyFile", "/etc/secrets/mongodb-keyfile", "--port", "27017", "--dbpath", "/data/db", "--bind_ip_all", "--profile", "2", "--slowms", "200", "--rateLimit", "100"]
+    # command: ["mongod", "--shardsvr", "--replSet", "rs", "--auth", "--keyFile", "/etc/secrets/mongodb-keyfile", "--port", "27017", "--dbpath", "/data/db", "--bind_ip_all"]
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    healthcheck:
+      test: ["CMD-SHELL", "mongosh --eval 'db.adminCommand(\"ping\")' --quiet"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
